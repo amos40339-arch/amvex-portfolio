@@ -130,6 +130,10 @@ section { padding-block: 112px 0 }
 .mail a { font: 600 clamp(17px, 2vw, 22px)/1.2 var(--f-display); text-decoration: none; border-bottom: 1px solid var(--brass); user-select: all; -webkit-user-select: all; overflow-wrap: anywhere }
 .mail a:hover { color: var(--brass) }
 .copy { padding: 8px 14px; font-size: 13px }
+.reach { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px }
+.handle.wa { background: transparent; color: var(--fg); border: 1px solid var(--line); box-shadow: inset 0 0 0 1px rgba(37,211,102,.55) }
+.handle.wa:hover { background: #25D366; color: #06200f }
+.handle.wa svg { width: 1em; height: 1em; flex: none }
 footer { border-top: 1px solid var(--line); padding-block: 24px 40px }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between }
 
@@ -257,14 +261,15 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
     <div class="wrap">
       <span class="mono">Launching soon? Work with Amos</span>
       <h2 class="wide">Let's make your launch <em>move.</em></h2>
-      <a class="handle" href="https://x.com/amvexstudio" target="_blank" rel="noopener">@amvexstudio <span aria-hidden="true">↗</span></a>
-      <div class="mail"><span class="mono">or email</span><a id="mailAddr" href="mailto:amvexstudio@gmail.com">amvexstudio@gmail.com</a><button class="btn copy" id="copyMail" type="button">Copy</button></div>
+      <div class="reach"><a class="handle" href="https://x.com/amvexstudio" target="_blank" rel="noopener">@amvexstudio <span aria-hidden="true">↗</span></a><a class="handle wa" href="https://wa.me/2349034161187" target="_blank" rel="noopener" aria-label="Chat on WhatsApp: +234 903 416 1187"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp <span aria-hidden="true">↗</span></a></div>
+      <div class="mail"><span class="mono">WhatsApp</span><a href="https://wa.me/2349034161187" target="_blank" rel="noopener">+234 903 416 1187</a></div>
+      <div class="mail" style="margin-top:12px"><span class="mono">or email</span><a id="mailAddr" href="mailto:amvexstudio@gmail.com">amvexstudio@gmail.com</a><button class="btn copy" id="copyMail" type="button">Copy</button></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap mono"><span>© 2026 Amos Emmanuel Victor · AMVEX Studio · amvexstudio@gmail.com</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
+  <div class="wrap mono"><span>© 2026 Amos Emmanuel Victor · AMVEX Studio · amvexstudio@gmail.com · WhatsApp +234 903 416 1187</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
 </footer>
 
 <dialog id="lb" aria-label="Film player">
