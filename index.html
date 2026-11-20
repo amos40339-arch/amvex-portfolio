@@ -160,7 +160,7 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
       <svg viewBox="0 0 80 100" aria-hidden="true"><polygon points="0,100 40,0 80,100 58,100 40,55 22,100" fill="#c29a5b"/><rect x="35.5" y="76" width="9" height="9" fill="#ff5a1f"/></svg>
       AMVEX STUDIO
     </a>
-    <div class="links"><a href="#work">Work</a><a href="#offer">Launch film</a><a href="#process">Process</a></div>
+    <div class="links"><a href="#work">Work</a><a href="#edits">Edits</a><a href="#offer">Launch film</a><a href="#process">Process</a></div>
     <a class="btn hot" href="https://x.com/amvexstudio" target="_blank" rel="noopener">DM on X</a>
   </div>
 </nav>
@@ -193,6 +193,20 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
         <p>Seven self-initiated launch films. Each one is an unofficial concept made for a real product; none of these brands is a client.</p>
       </div>
       <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="edits">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="wide">Short-form edits</h2>
+        <p>Talking-head promo for Amos Praise, web developer. Cleaned audio, cut the dead air, colour, captions, motion graphics and sound design. Raw clip on the left, finished edit on the right.</p>
+      </div>
+      <div class="showreel" style="margin-top:0">
+        <video id="bav" src="media/amos_ba.mp4" poster="media/amos_ba.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: raw talking-head clip next to the finished edit"></video>
+        <div class="sr-ui"><span class="sr-tag mono">Before / After · 0:34</span><button type="button" id="baSound" aria-pressed="false">Sound on</button></div>
+      </div>
+      <script>(()=>{const v=document.getElementById("bav"),b=document.getElementById("baSound");b.addEventListener("click",()=>{const on=v.muted;v.muted=!on;if(on){v.currentTime=0;v.play()}b.textContent=on?"Sound off":"Sound on";b.setAttribute("aria-pressed",on)})})();</script>
     </div>
   </section>
 
