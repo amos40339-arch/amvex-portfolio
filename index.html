@@ -126,6 +126,10 @@ section { padding-block: 112px 0 }
 
 .handle { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 999px; background: var(--fg); color: var(--ink); text-decoration: none; font: 800 clamp(18px, 2.4vw, 26px)/1 var(--f-display); transition: transform .3s cubic-bezier(.2,1.4,.4,1), background .2s }
 .handle:hover { transform: translateY(-3px) scale(1.02); background: var(--brass) }
+.mail { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 14px; margin-top: 22px }
+.mail a { font: 600 clamp(17px, 2vw, 22px)/1.2 var(--f-display); text-decoration: none; border-bottom: 1px solid var(--brass); user-select: all; -webkit-user-select: all; overflow-wrap: anywhere }
+.mail a:hover { color: var(--brass) }
+.copy { padding: 8px 14px; font-size: 13px }
 footer { border-top: 1px solid var(--line); padding-block: 24px 40px }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between }
 
@@ -226,13 +230,13 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
       <span class="mono">Launching soon?</span>
       <h2 class="wide">Let's make your launch <em>move.</em></h2>
       <a class="handle" href="https://x.com/amvexstudio" target="_blank" rel="noopener">@amvexstudio <span aria-hidden="true">↗</span></a>
-      <p class="mono" style="margin-top:18px">DMs open on X</p>
+      <div class="mail"><span class="mono">or email</span><a id="mailAddr" href="mailto:amvexstudio@gmail.com">amvexstudio@gmail.com</a><button class="btn copy" id="copyMail" type="button">Copy</button></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap mono"><span>© 2026 AMVEX Studio</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
+  <div class="wrap mono"><span>© 2026 AMVEX Studio · amvexstudio@gmail.com</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
 </footer>
 
 <dialog id="lb" aria-label="Film player">
@@ -254,6 +258,10 @@ const M = "media/";
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canHover = matchMedia("(hover: hover)").matches;
 const $ = id => document.getElementById(id);
+
+/* ---------- copy email ---------- */
+$("copyMail").onclick = e => { const b = e.currentTarget, done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1800); };
+  try { navigator.clipboard.writeText("amvexstudio@gmail.com").then(done, () => { getSelection().selectAllChildren($("mailAddr")); b.textContent = "Selected"; }); } catch (_) { getSelection().selectAllChildren($("mailAddr")); } };
 
 /* ---------- lightbox ---------- */
 const lb = $("lb"), lbv = $("lbv");
