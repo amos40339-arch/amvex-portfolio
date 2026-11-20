@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AMVEX Studio</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><meta name="author" content="Amos Emmanuel"><meta name="description" content="Amos Emmanuel (AMVEX Studio): launch films, 3D and motion design for SaaS and tech brands.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><meta name="author" content="Amos Emmanuel Victor"><meta name="description" content="Amos Emmanuel Victor (AMVEX Studio): launch films, 3D and motion design for SaaS and tech brands.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
@@ -143,6 +143,15 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
 .x { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--ink); color: var(--fg); font-size: 20px; cursor: pointer; flex: none }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } html { scroll-behavior: auto } }
+
+/* showreel (hero) */
+.showreel { position: relative; margin-top: 36px; border-radius: 22px; overflow: hidden; aspect-ratio: 16/9; background: var(--panel); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 40px 90px rgba(0,0,0,.55) }
+.showreel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block }
+.showreel .sr-ui { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; pointer-events: none }
+.showreel .sr-tag, .showreel button { pointer-events: auto; font: inherit; font-size: 14px; color: #fff; padding: 10px 16px; border-radius: 999px; background: rgba(20,18,16,.45); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6) }
+.showreel button { cursor: pointer; font-weight: 600 }
+.showreel button:hover { background: rgba(255,90,31,.85); border-color: transparent }
+@media (max-width: 640px) { .showreel { border-radius: 14px; margin-top: 24px } .showreel .sr-tag { display: none } .showreel .sr-ui { justify-content: flex-end; left: 10px; right: 10px; bottom: 10px } }
 </style>
 
 </head><body><nav>
@@ -161,9 +170,14 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
     <div class="wrap">
       <h1 class="wide">Launch films that <em>move</em> like the product.</h1>
       <div class="sub">
-        <p>I'm <b>Amos Emmanuel</b>, the motion designer behind AMVEX Studio. I make <b>launch and product films</b> for SaaS and tech brands, from a 15-second teaser to a full walkthrough: 3D worlds, real product UI in motion, and sound design locked to the beat.</p>
+        <p>I'm <b>Amos Emmanuel Victor</b>, the motion designer behind AMVEX Studio. I make <b>launch and product films</b> for SaaS and tech brands, from a 15-second teaser to a full walkthrough: 3D worlds, real product UI in motion, and sound design locked to the beat.</p>
         <div class="ctas"><a class="btn hot" href="#work">Watch the films</a><a class="btn" href="https://x.com/amvexstudio" target="_blank" rel="noopener">Book a launch film</a></div>
       </div>
+    <div class="showreel" id="showreel">
+      <video id="srv" src="media/amvex.mp4" poster="media/amvex.jpg" autoplay muted loop playsinline preload="metadata" aria-label="AMVEX showreel, 30 seconds"></video>
+      <div class="sr-ui"><span class="sr-tag mono">Showreel · Meet AMVEX · 0:30</span><button type="button" id="srSound" aria-pressed="false">Sound on</button></div>
+    </div>
+    <script>(()=>{const v=document.getElementById("srv"),b=document.getElementById("srSound");b.addEventListener("click",()=>{const on=v.muted;v.muted=!on;if(on){v.currentTime=0;v.play()}b.textContent=on?"Sound off":"Sound on";b.setAttribute("aria-pressed",on)})})();</script>
     </div>
     <div class="stage" id="stage" aria-label="Reel of 7 films. Drag to spin, tap the front film to play."><div class="ring" id="ring"></div></div>
     <div class="wrap">
@@ -236,7 +250,7 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
 </main>
 
 <footer>
-  <div class="wrap mono"><span>© 2026 Amos Emmanuel · AMVEX Studio · amvexstudio@gmail.com</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
+  <div class="wrap mono"><span>© 2026 Amos Emmanuel Victor · AMVEX Studio · amvexstudio@gmail.com</span><span>All films are unofficial concepts. Brand names and UI belong to their owners.</span></div>
 </footer>
 
 <dialog id="lb" aria-label="Film player">
