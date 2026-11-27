@@ -183,9 +183,9 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
     </div>
     <script>(()=>{const v=document.getElementById("srv"),b=document.getElementById("srSound");b.addEventListener("click",()=>{const on=v.muted;v.muted=!on;if(on){v.currentTime=0;v.play()}b.textContent=on?"Sound off":"Sound on";b.setAttribute("aria-pressed",on)})})();</script>
     </div>
-    <div class="stage" id="stage" aria-label="Reel of 8 films. Drag to spin, tap the front film to play."><div class="ring" id="ring"></div></div>
+    <div class="stage" id="stage" aria-label="Reel of 12 films. Drag to spin, tap the front film to play."><div class="ring" id="ring"></div></div>
     <div class="wrap">
-      <div class="now" aria-live="polite"><b id="nowName">Lovable</b><span class="mono" id="nowSub">Every app started as a sentence · 0:35</span></div>
+      <div class="now" aria-live="polite"><b id="nowName">SparrowDesk</b><span class="mono" id="nowSub">One line · 0:35</span></div>
       <div class="hint mono">Drag to spin · tap the front film to watch</div>
     </div>
   </header>
@@ -194,7 +194,7 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
     <div class="wrap">
       <div class="head">
         <h2 class="wide">Selected films</h2>
-        <p>Eight self-initiated launch films. Each one is an unofficial concept made for a real product; none of these brands is a client.</p>
+        <p>Twelve self-initiated launch films. Each one is an unofficial concept made for a real product; none of these brands is a client.</p>
       </div>
       <div class="grid" id="grid"></div>
     </div>
@@ -279,6 +279,10 @@ dialog video { display: block; width: 100%; aspect-ratio: 16/9; background: #000
 
 <script>
 const FILMS = [
+  { id: "sparrowdesk", brand: "SparrowDesk", title: "One line.", len: "0:35", desc: "Their logo is a sparrow shaped like a chat bubble, so every customer message becomes a bird. One ink line runs the whole film: phone cord, drawn call path, telephone wire, waveform, logo.", tags: ["Concept", "UI motion", "Sound design"] },
+  { id: "clam", brand: "Clam", title: "Your inbox is an ocean.", len: "0:35", desc: "AI agents fish in your inbox and a clam snaps shut on the drop. Their own ocean footage, plankton that forms their Shell icons, and a sonar that shows the live decision log.", tags: ["Concept", "Footage", "Sound design"] },
+  { id: "perry", brand: "Perry", title: "The legal OS for private capital.", len: "0:35", desc: "42 fund documents, one question, an answer with its source. Real product UI rebuilt big and used with a cursor, with shape transitions between every scene.", tags: ["UI motion", "Kinetic type", "Transitions"] },
+  { id: "sumary", brand: "Sumary", title: "AI for finance. Finally.", len: "0:35", desc: "Month-end close as paper-tape ribbons that bloom into six petals, with one left for a human to approve. Mesh gradients, footage chips and a 3D logo.", tags: ["Mesh gradient", "3D", "UI motion"] },
   { id: "lovable", brand: "Lovable", title: "Every app started as a sentence.", len: "0:35", desc: "A typed prompt carries the whole film: it builds a barbershop booking app, books a real customer and goes live, ending on a Blender glass heart.", tags: ["UI motion", "3D", "Sound design"] },
   { id: "opay", brand: "OPay", title: "Beyond Banking.", len: "0:35", desc: "Real app UI cut into moving 3D cards, a security lock sequence and a 45M-user counter, all on an 84 bpm beat.", tags: ["UI motion", "Kinetic type", "Sound design"] },
   { id: "raycast", brand: "Raycast", title: "Stay on the keys.", len: "0:35", desc: "One continuous camera move through a 3D keyboard world.", tags: ["3D", "Blender", "Camera"] },
@@ -369,7 +373,7 @@ requestAnimationFrame(frame);
 /* ---------- work grid ---------- */
 const grid = $("grid");
 const cards = FILMS.map((f, i) => {
-  const b = document.createElement("button"); b.className = "film" + (i < 2 ? " feature" : ""); b.type = "button";
+  const b = document.createElement("button"); b.className = "film" + (i < 3 ? " feature" : ""); b.type = "button";
   b.setAttribute("aria-label", `Play ${f.brand}, ${f.title}, ${f.len}`);
   b.innerHTML = `<div class="frame"><img src="${M + f.id}.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" src="${M + f.id}_loop.mp4"></video><div class="glare"></div><span class="tag">Unofficial concept</span><span class="play"><i></i>Play · ${f.len}</span></div>
   <div class="meta"><h3>${f.brand} <span>${f.title}</span></h3><span class="mono">${f.len}</span><p>${f.desc}</p><div class="chips">${f.tags.map(t => `<span>${t}</span>`).join("")}</div></div>`;
@@ -398,4 +402,5 @@ if (!canHover) {
   cards.forEach(c => io.observe(c));
 }
 </script>
+
 </body></html>
